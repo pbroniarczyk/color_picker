@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import postReducer from "./postReducer";
+import colorReducer from "./colorReducer";
 
 export default combineReducers({
-    posts: postReducer
+    colorArray: colorReducer
 })
