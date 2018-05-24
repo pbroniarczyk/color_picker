@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-    entry: "./src/App.js",
+    entry: "./src/index.js",
     output: {
         filename: "bundle.[chunkhash].js",
         path: path.resolve(__dirname, "build")

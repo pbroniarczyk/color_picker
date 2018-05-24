@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "pawel <pbroniarczyk@outlook.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack -p"
+  },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
