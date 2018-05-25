@@ -1,12 +1,12 @@
 .color-picker {
     height: 100vh;
-    background-color: #173840;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .picker__wrapper {
+    position: relative;
     width: 350px;
     background-color: #fff;
     height: 100px;

@@ -1,0 +1,31 @@
+.color-list {
+    background-color: #fff;
+    position: absolute;
+    top: 70px;
+    border: 1px solid;
+    left: 40px;
+    width: 178px;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: hidden;
+}
+
+.list__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: .3s ease-in-out;
+}
+.list__item:hover {
+    background-color: #17384024;
+}
+
+.color__sample {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: red;
+}
