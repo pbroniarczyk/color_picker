@@ -9,16 +9,21 @@ class ColorList extends Component {
         this.props.updateColorName(colorName);
     }
 
+    boldSearchPhrase = (fullName, searchPhrase) => {
+        const splittedName = fullName.substring(searchPhrase.length);        
+        return <p><b>{searchPhrase}</b>{splittedName}</p>;
+    }
+
     render() {
         const colorArray = [];
         
         let filteredColors = this.props.colors.filter((color) => {
-            if(color.name.includes(this.props.colorValue)) colorArray.push(color);
+            if(color.name.startsWith(this.props.colorName)) colorArray.push(color);
         });
          
         const colors = colorArray.map((color, index) => 
             <div className="list__item" onClick={this.chooseColor.bind(this, color.name, color.hex)}>
-                <p>{color.name}</p>
+                {this.boldSearchPhrase(color.name, this.props.colorName)}
                 <span
                     className="color__sample"
                     style={{backgroundColor: `#${color.hex}`}} />

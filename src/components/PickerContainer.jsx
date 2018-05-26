@@ -12,40 +12,46 @@ class PickerContainer extends Component {
     constructor() {
         super();
         this.state = {
-            colorValue: ""
+            colorName: ""
         }
 
-        this.pickColor = this.pickColor.bind(this);
+        this.newColor = this.newColor.bind(this);
         this.updateColorName = this.updateColorName.bind(this);
+        this.acceptColor = this.acceptColor.bind(this);
     }
 
-    pickColor = e => {
+    acceptColor = () => {
+        this.props.changeAppColor()
+    }
+
+    newColor = e => {
         const target = e.target;
-        this.setState({ colorValue: target.value });
+        this.setState({ colorName: target.value });
     }
 
-    updateColorName = color => {
-        this.setState({  colorValue: color});
+    updateColorName = colorName => {
+        this.setState({ colorName });
     }
 
     componentWillMount = () => {
         this.props.fetchColors()
     }
 
+
     render() {
         return (
             <div className="picker__wrapper">
                 <input
-                    onChange={this.pickColor}
-                    value={this.state.colorValue}
+                    onChange={this.newColor}
+                    value={this.state.colorName}
                     className="picker__input"
                     type="text"/>
-                <button className="picker__button">Accept</button>
+                <button className="picker__button" onClick={this.acceptColor}>Accept</button>
                 {
-                    this.state.colorValue.length >= 2
+                    this.state.colorName.length >= 2
                     ? <ColorList
                         colors={this.props.colorArray}
-                        colorValue={this.state.colorValue}
+                        colorName={this.state.colorName}
                         colorUpdate={this.props.colorUpdate}
                         updateColorName={this.updateColorName}/>
                     : null

@@ -35,4 +35,5 @@ input.picker__input {
     border-radius: 5px;
     background-color: #173840;
     color: #fff;
+    cursor: pointer;
 }
