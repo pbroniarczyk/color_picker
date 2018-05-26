@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { updateColorName } from "../actions/colorAction";
 
 
-class PickerContainer extends Component {
+class ColorForm extends Component {
     constructor() {
         super();
 
@@ -39,6 +39,7 @@ class PickerContainer extends Component {
                     onChange={this.newColor}
                     value={this.props.colorName}
                     className="picker__input"
+                    placeholder="Type color"
                     type="text"/>
                 <button className="picker__button" onClick={this.acceptColor}>Accept</button>
                 {
@@ -53,8 +54,10 @@ class PickerContainer extends Component {
     }
 }
 
-PickerContainer.propTypes = {
+ColorForm.propTypes = {
     updateColorName: PropTypes.func.isRequired,
+    colorName: PropTypes.string,
+    colorArray: PropTypes.array
 }
 
 const mapStateToProps = state => ({
@@ -63,4 +66,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, { updateColorName })(PickerContainer);
+export default connect(mapStateToProps, { updateColorName })(ColorForm);

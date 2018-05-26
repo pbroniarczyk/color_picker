@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 
 // Components
-import PickerContainer from "./PickerContainer.jsx";
+import ColorForm from "./ColorForm.jsx";
 
 // Assets
 import { connect } from "react-redux";
 import { updateAppColor } from "../actions/colorAction";
-import '../app.css';
+import './colorPickerContainer.css';
 
 class ColorPickerContainer extends Component {
     state = { 
@@ -38,7 +38,7 @@ class ColorPickerContainer extends Component {
     render() {
         return (
             <div style={{backgroundColor: this.props.bgColor}} className="color-picker">
-                <PickerContainer
+                <ColorForm
                     colorUpdate={this.colorUpdate.bind(this)}
                     changeAppColor={this.changeAppColor.bind(this)} />
             </div>
@@ -48,6 +48,7 @@ class ColorPickerContainer extends Component {
 
 ColorPickerContainer.propTypes = {
     updateAppColor: PropTypes.func.isRequired,
+    bgColor: PropTypes.string
 }
 
 const mapStateToProps = state => ({

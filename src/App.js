@@ -7,9 +7,6 @@ import ColorPickerContainer from "./components/ColorPickerContainer.jsx";
 import { Provider } from "react-redux";
 import store from "./store";
 
-// Assets
-import './app.css';
-
 
 class App extends Component {
     render() {

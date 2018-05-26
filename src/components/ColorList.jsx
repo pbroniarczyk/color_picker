@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // Assets
 import { connect } from "react-redux";
 import { fetchColors, clearColorArray } from "../actions/colorAction";
-import "./colorlist.css";
+import "./colorList.css";
 
 class ColorList extends Component {
 
@@ -52,7 +52,9 @@ class ColorList extends Component {
 
 ColorList.propTypes = {
     fetchColors: PropTypes.func.isRequired,
-    clearColorArray: PropTypes.func.isRequired
+    clearColorArray: PropTypes.func.isRequired,
+    colorName: PropTypes.string,
+    colorArray: PropTypes.array
 }
 
 const mapStateToProps = state => ({
