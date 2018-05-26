@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 
 // Components
 import ColorList from "./ColorList.jsx";
+
+// Assets
+import { connect } from "react-redux";
+import { updateColorName } from "../actions/colorAction";
 
 
 class PickerContainer extends Component {
     constructor() {
         super();
-        this.state = {
-            colorName: ""
-        }
 
         this.newColor = this.newColor.bind(this);
         this.updateColorName = this.updateColorName.bind(this);
@@ -22,11 +24,11 @@ class PickerContainer extends Component {
 
     newColor = e => {
         const target = e.target;
-        this.setState({ colorName: target.value });
+        this.props.updateColorName(target.value)
     }
 
     updateColorName = colorName => {
-        this.setState({ colorName });
+        this.props.updateColorName(colorName);
     }
 
 
@@ -35,15 +37,13 @@ class PickerContainer extends Component {
             <div className="picker__wrapper">
                 <input
                     onChange={this.newColor}
-                    value={this.state.colorName}
+                    value={this.props.colorName}
                     className="picker__input"
                     type="text"/>
                 <button className="picker__button" onClick={this.acceptColor}>Accept</button>
                 {
-                    this.state.colorName.length >= 2
+                    this.props.colorName && this.props.colorName.length > 1
                     ? <ColorList
-                        colors={this.props.colorArray}
-                        colorName={this.state.colorName}
                         colorUpdate={this.props.colorUpdate}
                         updateColorName={this.updateColorName}/>
                     : null
@@ -53,15 +53,14 @@ class PickerContainer extends Component {
     }
 }
 
-export default PickerContainer;
+PickerContainer.propTypes = {
+    updateColorName: PropTypes.func.isRequired,
+}
 
-// PickerContainer.propTypes = {
-//     fetchColors: PropTypes.func.isRequired,
-// }
-
-// const mapStateToProps = state => ({
-//     colorArray: state.colorArray.colorArray
-// });
+const mapStateToProps = state => ({
+    colorName: state.colorArray.colorName,
+    colorArray: state.colorArray.colorArray,
+});
 
 
-// export default connect(mapStateToProps, { fetchColors })(PickerContainer);
+export default connect(mapStateToProps, { updateColorName })(PickerContainer);

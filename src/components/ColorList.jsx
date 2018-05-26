@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 // Assets
 import { connect } from "react-redux";
-import { fetchColors } from "../actions/colorAction";
+import { fetchColors, clearColorArray } from "../actions/colorAction";
 import "./colorlist.css";
 
 class ColorList extends Component {
@@ -11,6 +11,7 @@ class ColorList extends Component {
     chooseColor = (colorName, colorHex) => {
         this.props.colorUpdate(colorHex);
         this.props.updateColorName(colorName);
+        this.props.clearColorArray();
     }
 
     boldSearchPhrase = (fullName, searchPhrase) => {
@@ -28,9 +29,12 @@ class ColorList extends Component {
         let filteredColors = this.props.colorArray.filter((color) => {
             if(color.name.startsWith(this.props.colorName)) colorArray.push(color);
         });
-         
-        const colors = colorArray.map((color, index) => 
-            <div className="list__item" onClick={this.chooseColor.bind(this, color.name, color.hex)}>
+        
+        const colors = colorArray.map(color => 
+            <div
+                className="list__item"
+                key={color.name}
+                onClick={this.chooseColor.bind(this, color.name, color.hex)}>
                 {this.boldSearchPhrase(color.name, this.props.colorName)}
                 <span
                     className="color__sample"
@@ -39,7 +43,7 @@ class ColorList extends Component {
         );
 
         return (
-            <div className="color-list">
+            <div className={`color-list ${this.props.colorArray.length === 0 ? "color-list--no-border" : "" }`}>
                 { colors }
             </div>
         )
@@ -48,11 +52,13 @@ class ColorList extends Component {
 
 ColorList.propTypes = {
     fetchColors: PropTypes.func.isRequired,
+    clearColorArray: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
-    colorArray: state.colorArray.colorArray
+    colorArray: state.colorArray.colorArray,
+    colorName: state.colorArray.colorName
 });
 
 
-export default connect(mapStateToProps, { fetchColors })(ColorList);
+export default connect(mapStateToProps, { fetchColors, clearColorArray })(ColorList);

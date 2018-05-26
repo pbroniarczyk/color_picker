@@ -11,11 +11,10 @@ import '../app.css';
 
 class ColorPickerContainer extends Component {
     state = { 
-        // bgColor: "rgba(23, 56, 64, 1)" ,
         colorUpdated: ""
     }
 
-    convertColor = (color) => {
+    convertColor = color => {
         let r = parseInt(color.slice(0, 2), 16),
             g = parseInt(color.slice(2, 4), 16),
             b = parseInt(color.slice(4, 6), 16);
@@ -23,7 +22,7 @@ class ColorPickerContainer extends Component {
         return `rgba(${r}, ${g}, ${b}, 0.5)`;
     }
 
-    colorUpdate = (colorHex) => {
+    colorUpdate = colorHex => {
         this.setState({
             colorUpdated: this.convertColor(colorHex)
         })
@@ -37,7 +36,6 @@ class ColorPickerContainer extends Component {
     }
 
     render() {
-        console.log("CONTAINER props", this.props);
         return (
             <div style={{backgroundColor: this.props.bgColor}} className="color-picker">
                 <PickerContainer

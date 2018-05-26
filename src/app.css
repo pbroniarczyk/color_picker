@@ -37,3 +37,6 @@ input.picker__input {
     color: #fff;
     cursor: pointer;
 }
+.picker__button:focus {
+    outline-color: transparent;
+}
