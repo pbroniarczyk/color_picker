@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from "prop-types";
 
-import { connect } from "react-redux";
-
-import { fetchColors } from "../actions/colorAction";
-
+// Components
 import ColorList from "./ColorList.jsx";
 
 
@@ -33,10 +29,6 @@ class PickerContainer extends Component {
         this.setState({ colorName });
     }
 
-    componentWillMount = () => {
-        this.props.fetchColors()
-    }
-
 
     render() {
         return (
@@ -61,13 +53,15 @@ class PickerContainer extends Component {
     }
 }
 
-PickerContainer.propTypes = {
-    fetchColors: PropTypes.func.isRequired,
-}
+export default PickerContainer;
 
-const mapStateToProps = state => ({
-    colorArray: state.colorArray.colorArray
-});
+// PickerContainer.propTypes = {
+//     fetchColors: PropTypes.func.isRequired,
+// }
+
+// const mapStateToProps = state => ({
+//     colorArray: state.colorArray.colorArray
+// });
 
 
-export default connect(mapStateToProps, { fetchColors })(PickerContainer);
+// export default connect(mapStateToProps, { fetchColors })(PickerContainer);

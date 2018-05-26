@@ -1,1 +1,3 @@
 export const FETCH_COLORS = "FETCH_COLORS";
+export const UPDATE_APP_COLOR = "UPDATE_APP_COLOR";
+export const UPDATE_COLOR_NAME = "UPDATE_COLOR_NAME";

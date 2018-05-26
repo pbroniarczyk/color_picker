@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import PropTypes from "prop-types";
 
+// Assets
+import { connect } from "react-redux";
+import { fetchColors } from "../actions/colorAction";
 import "./colorlist.css";
 
 class ColorList extends Component {
@@ -14,10 +18,14 @@ class ColorList extends Component {
         return <p><b>{searchPhrase}</b>{splittedName}</p>;
     }
 
+    componentWillMount = () => {
+        this.props.fetchColors()
+    }
+
     render() {
         const colorArray = [];
         
-        let filteredColors = this.props.colors.filter((color) => {
+        let filteredColors = this.props.colorArray.filter((color) => {
             if(color.name.startsWith(this.props.colorName)) colorArray.push(color);
         });
          
@@ -38,4 +46,13 @@ class ColorList extends Component {
     }
 }
 
-export default ColorList;
+ColorList.propTypes = {
+    fetchColors: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = state => ({
+    colorArray: state.colorArray.colorArray
+});
+
+
+export default connect(mapStateToProps, { fetchColors })(ColorList);

@@ -3,7 +3,9 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 
-const initialState = {};
+const initialState = {
+    bgColor: "rgba(23, 56, 64, 1)"
+};
 const middleware = [thunk];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
