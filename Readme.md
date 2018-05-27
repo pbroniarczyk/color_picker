@@ -10,7 +10,7 @@ Install depedencies
 yarn
 ```
 
-Start app locally ( it will open browser tab at: localhost:8080 )
+Start app locally ( it will automticly open browser tab )
 
 ```
 yarn start
@@ -18,9 +18,7 @@ yarn start
 
 ----------
 
-Run tests
-
-## Running the tests
+## App tests
 
 ```
 yarn test
@@ -32,6 +30,6 @@ yarn test
 
 * ES6
 * React
-* Reduc
+* Redux
 * Jest
 * Enzyme
