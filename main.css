@@ -1,0 +1,83 @@
+.color-list {
+    background-color: #fff;
+    position: absolute;
+    top: 70px;
+    border: 1px solid;
+    left: 40px;
+    width: 178px;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: hidden;
+}
+
+.color-list--no-border {
+    border: none;
+}
+
+.list__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: .3s ease-in-out;
+}
+.list__item:hover {
+    background-color: #17384024;
+}
+
+.color__sample {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }  
+
+
+.color-picker {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.picker__wrapper {
+    position: relative;
+    width: 350px;
+    background-color: #fff;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 3px #00000073;
+}
+
+input.picker__input {
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #173840;
+    margin-right: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #173840;
+}
+
+.picker__button {
+    width: 80px;
+    height: 35px;
+    border: 1px solid #173840;
+    border-radius: 5px;
+    background-color: #173840;
+    color: #fff;
+    cursor: pointer;
+}
+.picker__button:focus {
+    outline-color: transparent;
+}
