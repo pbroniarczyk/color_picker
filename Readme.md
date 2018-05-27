@@ -10,13 +10,14 @@ Install depedencies
 yarn
 ```
 
+
 Start app locally ( it will automticly open browser tab )
 
 ```
 yarn start
 ```
 
-----------
+
 
 ## App tests
 
