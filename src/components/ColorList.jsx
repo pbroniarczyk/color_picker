@@ -43,7 +43,9 @@ class ColorList extends Component {
         );
 
         return (
-            <div className={`color-list ${this.props.colorArray.length === 0 ? "color-list--no-border" : "" }`}>
+            <div
+                style={colors.length > 4 ? {overflowY: "scroll"} : {} }
+                className={`color-list ${this.props.colorArray.length === 0 ? "color-list--no-border" : "" }`}>
                 { colors }
             </div>
         )

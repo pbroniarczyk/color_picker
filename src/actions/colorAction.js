@@ -10,23 +10,23 @@ export const fetchColors = colorsData => dispatch => {
     );
 };
 
-export const clearColorArray = colors => dispatch => {
-    dispatch({
+export const clearColorArray = colors => {
+    return {
         type: CLEAR_COLOR_ARRAY,
         payload: colors
-    });
+    };
 }
 
-export const updateAppColor = color => dispatch => {
-    dispatch({
+export const updateAppColor = color => {
+    return {
         type: UPDATE_APP_COLOR,
         payload: color
-    });
+    };
 };
 
-export const updateColorName = colorName => dispatch => {
-    dispatch({
+export const updateColorName = colorName => {
+    return {
         type: UPDATE_COLOR_NAME,
         payload: colorName
-    });
+    }
 }

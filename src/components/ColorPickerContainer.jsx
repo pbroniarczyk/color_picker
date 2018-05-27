@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { updateAppColor } from "../actions/colorAction";
 import './colorPickerContainer.css';
 
-class ColorPickerContainer extends Component {
+export class ColorPickerContainer extends Component {
     state = { 
         colorUpdated: ""
     }
