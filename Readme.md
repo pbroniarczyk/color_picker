@@ -7,14 +7,14 @@ Tiny React app for changing background color of entire application. Colors are f
 Install depedencies
 
 ```
-yarn
+yarn || npm install
 ```
 
 
 Start app locally ( it will automticly open browser tab )
 
 ```
-yarn start
+yarn start || npm start
 ```
 
 
@@ -22,7 +22,7 @@ yarn start
 ### App tests
 
 ```
-yarn test
+yarn test || npm test
 ```
 
 ----------
