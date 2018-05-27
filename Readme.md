@@ -19,7 +19,7 @@ yarn start
 
 
 
-## App tests
+### App tests
 
 ```
 yarn test
